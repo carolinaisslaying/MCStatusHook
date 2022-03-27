@@ -13,7 +13,6 @@ import java.util.logging.Level;
 
 public final class MCStatusHook extends JavaPlugin {
 
-    public static JavaPlugin plugin = null;
     private final OkHttpClient httpClient = new OkHttpClient();
     final String prefix = "[MCStatusHook] ";
 
@@ -52,10 +51,13 @@ public final class MCStatusHook extends JavaPlugin {
                 .build();
 
         try (Response response = httpClient.newCall(getRequest).execute()) {
-            if (!response.isSuccessful()) throw new IOException("Unexpected code " + response);
+            if (!response.isSuccessful()) {
+                Bukkit.getLogger().log(Level.WARNING, prefix + "Webhook query failed, have you put a valid webhook URL in the config.yml?");
+                throw new IOException("Unexpected code " + response);
+            }
 
             Gson gson = new Gson();
-            WebhookData webhook_data = gson.fromJson(response.body().string(), WebhookData.class);
+            WebhookData webhook_data = gson.fromJson(Objects.requireNonNull(response.body()).string(), WebhookData.class);
 
             String webhook_message;
 
@@ -65,6 +67,7 @@ public final class MCStatusHook extends JavaPlugin {
                 webhook_message = config.getString("offline_msg");
             }
 
+            assert webhook_message != null;
             RequestBody formBody = new FormBody.Builder()
                     .add("content", webhook_message)
                     .build();
@@ -75,7 +78,11 @@ public final class MCStatusHook extends JavaPlugin {
                     .build();
 
             try (Response finalResponse = httpClient.newCall(postRequest).execute()) {
-                if (!finalResponse.isSuccessful()) throw new IOException("Unexpected code " + finalResponse);
+                if (!finalResponse.isSuccessful()) {
+                    Bukkit.getLogger().log(Level.WARNING, prefix + "Webhook post failed, does your config.yml have message values set that aren't blank?");
+                    throw new IOException("Unexpected code " + finalResponse);
+                }
+
                 Bukkit.getLogger().log(Level.INFO, prefix + "Webhook sent.");
             }
         }
