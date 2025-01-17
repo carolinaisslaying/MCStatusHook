@@ -1,9 +1,10 @@
 # MCStatusHook
 MCStatusHook is a lightweight and simple plugin that sends a message regarding a server's status to Discord via webhook.
 
+It is compatible with Spigot/Paper 1.18 to 1.21.
+
 [![GNU General Public License v3.0](https://img.shields.io/github/license/Carolina2k22/MCStatusHook?&logo=github)](LICENSE)
 [![Build](https://github.com/Carolina2k22/MCStatusHook/actions/workflows/build.yml/badge.svg)](https://github.com/Carolina2k22/MCStatusHook/actions/workflows/build.yml)
-[![Join us on Discord](https://img.shields.io/discord/956852101714169888.svg?label=&logo=discord&logoColor=ffffff&color=5865F2&labelColor=5865F2)](https://discord.gg/AnTJtEJqeP)
 
 ## Setup
 1. Download the plugin's .jar file, and place it in your server's `plugin` folder.
