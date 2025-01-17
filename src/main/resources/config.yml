@@ -3,5 +3,5 @@
 # =============================== #
 # NOTE: webhook_url MUST be changed to your webhook URL otherwise the plugin will not work.
 webhook_url: "https://discord.com/api/webhooks/0/0"
-online_msg: "The Minecraft Server is now :green_circle: **Online**, you can join on 1.18.2 with the IP `127.0.0.1`."
+online_msg: "The Minecraft Server is now :green_circle: **Online**, you can join on 1.21.4 with the IP: `127.0.0.1`."
 offline_msg: "The Minecraft Server is now :red_circle: **Offline**, see you later!"

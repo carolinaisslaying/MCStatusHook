@@ -1,4 +1,4 @@
-package com.carolina2k22.mcstatushook;
+package icu.carolinainthe.mcstatushook;
 
 public class WebhookData {
     String id;

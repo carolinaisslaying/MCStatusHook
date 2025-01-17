@@ -1,4 +1,4 @@
-package com.carolina2k22.mcstatushook;
+package icu.carolinainthe.mcstatushook;
 
 import com.google.gson.Gson;
 import org.bukkit.Bukkit;

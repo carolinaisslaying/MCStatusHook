@@ -1,8 +1,8 @@
 name: MCStatusHook
 version: '${project.version}'
-main: com.carolina2k22.mcstatushook.MCStatusHook
+main: icu.carolinainthe.mcstatushook.MCStatusHook
 api-version: 1.18
 prefix: MCStatusHook
-authors: [ Carolina2k22 ]
+authors: [ carolinaisslaying ]
 description: A lightweight and simple plugin that sends a message regarding a server's status to Discord via webhook.
-website: https://mcstatushook.carolina2k22.com
+website: https://carolinainthe.icu
